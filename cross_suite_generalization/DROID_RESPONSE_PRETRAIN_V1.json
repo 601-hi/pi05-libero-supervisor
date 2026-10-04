@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "seed": 20260908,
+  "hidden_dim": 128,
+  "learning_rate": 0.001,
+  "batch_size": 2048,
+  "torch_num_threads": 1,
+  "gripper_active_threshold": 0.000001,
+  "epochs": 40,
+  "early_stopping_patience": 8,
+  "early_stopping_min_delta": 0.0001,
+  "loss": "structured sum: 13D diagonal heteroscedastic Gaussian NLL + class-balanced gripper activity BCE + active-only gripper magnitude Gaussian NLL",
+  "input": "lags 0..5 Cartesian command history plus current EEF, joint, and gripper state",
+  "target": "next EEF wrapped-pose and joint delta, plus hurdle-model gripper activity and active magnitude",
+  "intended_use": "DROID-domain response representation pretraining; later transfer evaluated without LIBERO-10 tuning",
+  "not_authorized": [
+    "directly set LIBERO alarm thresholds",
+    "pool raw DROID and LIBERO command units",
+    "use task, language, reward, success, episode path, or images"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "registered_at": "2026-09-08T00:00:00+08:00",
+  "principle": "Final zero-shot evaluation data must not be used for model fitting, feature selection, threshold selection, normalization, calibration, or post-hoc redesign.",
+  "libero_domains": {
+    "libero_spatial": {
+      "status": "development",
+      "reason": "Multiple tasks and seeds have been used for training, calibration, diagnostics, and architecture decisions."
+    },
+    "libero_object": {
+      "status": "development_or_adaptation_only",
+      "reason": "Task 0 and cross-suite results have been inspected; an earlier manifest also assigned tasks to development/calibration."
+    },
+    "libero_goal": {
+      "status": "development_or_adaptation_only",
+      "reason": "Task 2 and cross-suite results have been inspected; an earlier manifest also assigned tasks to development/calibration."
+    },
+    "libero_90": {
+      "status": "not_primary_zero_shot_test",
+      "reason": "Tasks were already selected in a development plan. It may be used only under a separately frozen task holdout declared before access."
+    },
+    "libero_10": {
+      "status": "opened_final_test_then_diagnostic_only_after_2026_09_11",
+      "reason": "First opened only after the v3 relational model, DROID source thresholds, task list, seeds, metrics, and code hashes were frozen. The completed 40-episode result is immutable; this suite is now diagnostic-only and cannot serve as a new final holdout.",
+      "provisional": false,
+      "required_before_use": [
+        "freeze model weights, feature code, thresholds, and metrics",
+        "record hashes before first evaluation",
+        "do not inspect per-task outputs until the complete registered run finishes"
+      ]
+    }
+  },
+  "external_training_policy": {
+    "selection_basis": "physics and sensor coverage, not similarity to particular LIBERO test scenes",
+    "target_domain_data_allowed_for_zero_shot_fit": false,
+    "target_domain_data_allowed_for_zero_shot_thresholds": false,
+    "dataset_id_allowed_as_detector_feature": false,
+    "success_reward_or_oracle_state_allowed_as_detector_feature": false
+  },
+  "reported_tracks": {
+    "zero_shot": "External data only; no target-domain fitting or calibration.",
+    "normal_only_adaptation": "A separately reported deployment track using a predeclared amount of unlabeled target-domain normal data.",
+    "in_domain": "Development evidence only, never presented as broad generalization."
+  }
+}

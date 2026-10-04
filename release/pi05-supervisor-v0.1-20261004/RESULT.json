@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-04",
+  "suite": "libero_90",
+  "task_id": 0,
+  "episode_idx": 2,
+  "sampling_noise_seed": 2026092700,
+  "first_recovery_completed_action": 312,
+  "second_recovery_start_action": 405,
+  "second_recovery_handoff_action": 992,
+  "second_recovery_spatial_retreat_m": 0.09516513678054589,
+  "second_recovery_executed_actions": 586,
+  "post_replan_policy_actions": 16,
+  "episode_end_action": 1009,
+  "libero_success": true,
+  "human_video_review_success": true,
+  "automatic_third_recovery_used": false,
+  "full_demonstration_video": "artifacts/results/v37_full_episode_supervision_recovery_success.mp4",
+  "raw_snapshot_started_video": "artifacts/results/v37_second_rollback_095_replan_success.mp4",
+  "full_video_prefix_frames": 82,
+  "full_video_total_frames": 1009,
+  "full_video_fps": 10,
+  "claim_scope": "single video-confirmed end-to-end recovery case"
+}

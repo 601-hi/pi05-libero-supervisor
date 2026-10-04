@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "frozen_on": "2026-09-11",
+  "status": "code_and_protocol_frozen_before_source_ensemble_run",
+  "note": "Actual source run remains pending because SSH authorization was unavailable.",
+  "sha256": {
+    "reliability_sequence_supervisor.py": "bc5ef6a47b3b247170defa78c0767b8298ecd5fb8bf4a9034aa35e1bde15cb24",
+    "fit_reliability_calibration.py": "5c30ecd679e6a6ef7cb2fcc0fcd1815c58ee4113146421230a728648405d3c37",
+    "fit_source_sequence_parameters.py": "1d65871fbe505f10e2597a5cffbb17db02ab0f44703ccdb05909e9ff39acf63f",
+    "score_relational_ensemble.py": "94e966478894e49289f5bd500a7eb67a683a8d8f504e081181aea813094f4db2",
+    "evaluate_reliability_sequence.py": "8eb5655bc9db09af8066dea51df2672f85fbffd5c42c549f49aa98bcfee254f5",
+    "run_source_reliability_stage_v1.sh": "cf11384dd89506d858c3d9ba3f7997faf8fcba72b67a4818931acf2102cfcab0",
+    "RELIABILITY_SEQUENCE_PREREGISTRATION_V1.json": "9c00f855fbf9119152d61411637023d6571397ba2215fb072344fe3d955c96d7",
+    "test_reliability_sequence_supervisor.py": "e33e03d4ac7efd696f474c2264c93b1c81262d7d241dd590aa56333b640b3506"
+  },
+  "required_before_any_target_holdout": [
+    "verify all frozen hashes",
+    "run source ensemble and calibration without target data",
+    "require non-overlapping gates and source normal-episode constraint",
+    "freeze generated model and calibration artifact hashes",
+    "name a genuinely unseen target dataset or task split"
+  ],
+  "diagnostic_only": ["LIBERO-10 task 1/3/5/7/9 seed32 traces"]
+}

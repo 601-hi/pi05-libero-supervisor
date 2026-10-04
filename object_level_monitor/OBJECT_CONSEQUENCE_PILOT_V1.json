@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "status": "preregistered_not_yet_executed",
+  "seed": 32,
+  "sampling_noise_seed": 2026090732,
+  "tasks": [
+    {"suite": "libero_object", "task_id": 0, "description": "alphabet soup to basket"},
+    {"suite": "libero_goal", "task_id": 2, "description": "wine bottle to cabinet top"}
+  ],
+  "conditions": ["normal", "force_open_at_close"],
+  "intervention": {
+    "trigger": "first intended gripper action >= 0.5",
+    "trigger_consecutive_steps": 1,
+    "duration_steps": 15,
+    "translation_scale": 1.0,
+    "executed_gripper_action": -1.0
+  },
+  "stop_conditions": [
+    "normal rollout fails capability gate",
+    "no applied gripper intervention is recorded",
+    "any intended/executed/EEF difference exists before intervention onset",
+    "at onset any executed action coordinate except gripper differs",
+    "visual files do not align action t to frame t and t+1"
+  ],
+  "sha256": {
+    "candidate_monitoring_main": "4580d6ff94b23a4030d4d4bffb107ce953568a66b84009660b0e6dc34ef76b29",
+    "gripper_intervention": "baf69bd53c0d47a7afa1b0be1e3a88994d3b8a74bf5cc190a22d96eaf8db1aac",
+    "paired_trace_audit": "625126882eb03e366969410d65adb5067c02f6879f081b4bd19af20da68a5e73",
+    "run_script": "da45c60f80b84581db25483df157d94d0e88d4f051f6d70e6686bbc8cdbe8978",
+    "kinematic_safety": "ad70a835d3a879745f88e072f25cfbac2bea0449eae3226834cc5f4252e647bd"
+  }
+}

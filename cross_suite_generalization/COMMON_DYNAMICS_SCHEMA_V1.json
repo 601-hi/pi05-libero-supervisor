@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "unit_of_data": "one causal transition",
+  "required_identity": ["dataset", "episode_id", "step_id", "robot_model", "controller_mode"],
+  "required_timing": ["command_timestamp", "state_before_timestamp", "state_after_timestamp", "delta_t_seconds", "timing_source"],
+  "command": {
+    "representation": "one explicitly declared mode only",
+    "allowed_modes": ["eef_delta_pose", "eef_velocity", "eef_absolute_pose", "joint_delta_position", "joint_velocity", "joint_absolute_position"],
+    "required": ["mode", "reference_frame", "translation_or_joint_units", "rotation_representation", "gripper_semantics", "raw_value"],
+    "forbidden_inference": "Do not derive command semantics only from vector dimension or value range."
+  },
+  "measured_before_after": {
+    "preferred": ["eef_pose", "joint_position", "joint_velocity", "gripper_position"],
+    "optional": ["joint_torque_measured", "motor_current", "wrench", "controller_status"],
+    "derived_targets": ["eef_translation_delta_local", "eef_rotation_delta", "joint_position_delta", "gripper_position_delta"]
+  },
+  "visual": {
+    "optional": true,
+    "required_if_used": ["camera_id", "frame_timestamp", "intrinsics_if_available", "extrinsics_if_available"],
+    "alignment": "pre-command frame and causally post-command frame; preserve and validate sensor/controller latency"
+  },
+  "quality_flags": [
+    "timestamp_monotonic",
+    "alignment_tolerance_satisfied",
+    "no_dropped_state_transition",
+    "command_semantics_verified_from_primary_source",
+    "units_verified",
+    "no_oracle_label_in_features"
+  ],
+  "normalization": {
+    "rule": "retain SI-valued raw fields and add separate dimensionless normalized views",
+    "dimensionless_examples": ["delta_position_over_commanded_speed_dt", "joint_delta_over_range", "torque_over_rated_or_empirical_normal_scale"],
+    "fit_scope": "training split only; never fit using final evaluation domain"
+  },
+  "exclusion_rules": [
+    "missing or ambiguous command semantics",
+    "no causally later measured state",
+    "unknown timestamps when streams require alignment",
+    "replayed forced state presented as natural plant response",
+    "reward, success, simulator contacts, or object pose included as deployable features"
+  ]
+}

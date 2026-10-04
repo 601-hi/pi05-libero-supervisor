@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "source_only": true,
+  "target_data_used": false,
+  "model": "five conditional relational dual-expert MLP members",
+  "sequence_score": "ten-step causal mean of ensemble_mean_likelihood_ratio minus one ensemble standard deviation",
+  "beta": 1.0,
+  "window": 10,
+  "alarm_threshold": 2.6228122472763062,
+  "threshold_origin": "maximum ten-step robust-score window across 9 reserved DROID normal calibration episodes",
+  "finite_sample_statement": "Under exchangeability, max-score split conformal with 9 episodes has nominal next-source-episode exceedance bound 1/(9+1)=0.10; no target-domain guarantee.",
+  "source_localized_results": {
+    "normal_calibration_episode_exceedances": "0/9",
+    "scale025": "9/9",
+    "scale050": "7/9",
+    "scale075": "2/9"
+  },
+  "uncertainty_routing": {
+    "sensor_invalid": "separate protective-stop counter",
+    "model_low_support": "report unknown/coverage; do not erase robust likelihood-ratio evidence and do not automatically emergency-stop"
+  },
+  "limitations": [
+    "source calibration has only 9 normal sequence episodes",
+    "synthetic anomalies only scale response and do not span all real failure types",
+    "LIBERO-10 is opened diagnostic data and cannot validate a new primary claim",
+    "a new untouched target set is required after adapter and code hashes are frozen"
+  ]
+}

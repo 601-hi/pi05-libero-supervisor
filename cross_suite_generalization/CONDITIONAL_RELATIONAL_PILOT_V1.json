@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "registered_before_training": true,
+  "target_data_used": false,
+  "training": "DROID accepted train episodes only",
+  "development": "DROID held-out calibration episodes only",
+  "model": "two conditional heteroscedastic MLP experts with explicit likelihood-ratio margin",
+  "target": "six lagged dimensionless directed-progress values",
+  "condition_features": [
+    "Franka joint positions normalized by design limits",
+    "minimum normalized joint-limit margin",
+    "EEF translation relative to episode initial pose divided by 0.855 m reach",
+    "gripper position divided by robot-specific full stroke",
+    "current translation-command unit direction",
+    "current command displacement norm divided by reach",
+    "rotation-command displacement norm divided by pi",
+    "previous EEF response divided by reach",
+    "previous same-step directed progress"
+  ],
+  "forbidden_inputs": ["task ID", "reward", "success", "object state", "simulator contact", "current response in current context", "absolute scene image"],
+  "pilot_gate": {
+    "first": "one seed on source data",
+    "continue_to_ensemble_only_if": [
+      "finite held-out objective",
+      "no causal feature test failure",
+      "source calibration likelihood ratio retains useful separation",
+      "normal episode high-score windows are reduced without erasing synthetic anomaly ordering"
+    ]
+  },
+  "target_rule": "No LIBERO-10 fitting; any later LIBERO-10 use is diagnostic-only after source model freeze."
+}

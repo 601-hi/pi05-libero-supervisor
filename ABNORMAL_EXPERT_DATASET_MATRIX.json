@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "status": "planned_before_collection",
+  "fault_family": "translation_execution_attenuation",
+  "common": {
+    "suite": "libero_spatial",
+    "tasks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "replan_steps": 5,
+    "disturbance_start_mode": "random",
+    "random_start_range_inclusive": [20, 90],
+    "disturbance_steps": 10,
+    "scales": [0.25, 0.5, 0.75],
+    "paired_normal_required": true,
+    "fixed_policy_sampling_noise": true
+  },
+  "splits": {
+    "train": {
+      "environment_seeds": [18, 19],
+      "episodes_per_task_per_condition_per_seed": 1,
+      "conditions": ["normal", "scale025", "scale050", "scale075"],
+      "expected_episodes": 80
+    },
+    "calibration": {
+      "environment_seed": 20,
+      "episodes_per_task_per_condition": 1,
+      "conditions": ["normal", "scale025", "scale050", "scale075"],
+      "expected_episodes": 40
+    },
+    "test": {
+      "environment_seed": 21,
+      "episodes_per_task_per_condition": 2,
+      "conditions": ["normal", "scale025", "scale050", "scale075"],
+      "expected_episodes": 80,
+      "must_remain_unread_until_all_models_and_fusion_rules_are_frozen": true
+    }
+  },
+  "acceptance": {
+    "pre_disturbance_max_intended_action_difference": 0.0,
+    "pre_disturbance_max_eef_difference_m": 0.0,
+    "active_mask_contiguous": true,
+    "target_active_steps": 10,
+    "short_exposure_must_be_reported": true,
+    "low_observability_mean_target_norm_below_m": 0.015,
+    "forbid_absolute_action_index_as_model_input": true,
+    "forbid_executed_action_as_model_input": true,
+    "forbid_scale_and_disturbance_fields_as_model_input": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-09-08T21:11:50+08:00",
+  "host": "gpufree-container",
+  "scope": "/root/gpufree-data/libero-traces",
+  "method": "filename, size, and modification-time listing only; no JSONL content was opened",
+  "pattern": "*libero_10*",
+  "matching_files": 0,
+  "decision": "libero_10 may be promoted from provisional candidate to sealed final-test suite",
+  "environment": {
+    "gpu": false,
+    "advertised_cpu_cores": 0.5,
+    "advertised_memory_gb": 2,
+    "data_disk_available_gb_approx": 23,
+    "tensorflow_in_openpi_env": false,
+    "tensorflow_datasets_in_openpi_env": false,
+    "tensorflow_in_libero_env": false,
+    "tensorflow_datasets_in_libero_env": false,
+    "droid_data_files_found": 0
+  },
+  "next_access_rule": "Do not run or inspect libero_10 until model, feature code, thresholds, metrics, and artifact hashes are frozen."
+}

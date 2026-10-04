@@ -1,0 +1,26 @@
+EP 0 baseline False control False unresolved prefix_steps 82 exact True action_diff 0.0 state_diff 0.0
+  END {'executed_actions': 242, 'rollback_executed_steps': 160, 'rollback_join_steps': 0, 'rollback_replay_steps': 160, 'rollback_terminal_reason': 'replay_step_budget_exhausted', 'policy_budget_reset_count': 0}
+  TARGETS [('replay', 57), ('replay', 54), ('replay', 51)]
+  SELECTED {'direct_0.25': 113, 'direct_0.5': 26, 'escape_axis_1_pos_0.25': 19, 'escape_axis_1_pos_0.5': 1, 'escape_axis_2_pos_0.25': 1} MASKED 0
+  SELF_MM {'first': 60.39147977252901, 'min': 59.378076252983526, 'max': 60.39147977252901, 'last': 59.443392182680576}
+EP 1 baseline False control False unresolved prefix_steps 82 exact True action_diff 0.0 state_diff 0.0
+  END {'executed_actions': 142, 'rollback_executed_steps': 60, 'rollback_join_steps': 60, 'rollback_replay_steps': 0, 'rollback_terminal_reason': 'swept_collision_gate_rejected_all_candidates', 'policy_budget_reset_count': 0}
+  TARGETS [('join', 38)]
+  SELECTED {'escape_axis_0_neg_0.25': 1, 'escape_axis_2_pos_0.25': 40, 'escape_axis_2_pos_1': 13, 'escape_axis_2_pos_0.5': 6, None: 1} MASKED 28
+  SELF_MM {'first': 63.5020546608942, 'min': 63.17340781232317, 'max': 63.50749429767166, 'last': 63.17340781232317}
+EP 2 baseline False control False unresolved prefix_steps 82 exact True action_diff 0.0 state_diff 0.0
+  END {'executed_actions': 290, 'rollback_executed_steps': 208, 'rollback_join_steps': 48, 'rollback_replay_steps': 160, 'rollback_terminal_reason': 'replay_step_budget_exhausted', 'policy_budget_reset_count': 0}
+  TARGETS [('join', 77), ('replay', 66), ('replay', 62)]
+  SELECTED {'direct_1': 149, 'direct_0.5': 2, 'direct_0.25': 9, 'escape_axis_0_neg_0.25': 33, 'escape_axis_1_pos_0.25': 8, 'escape_axis_0_neg_1': 6, 'escape_axis_0_pos_0.25': 1} MASKED 33
+  SELF_MM {'first': 17.479188383735856, 'min': 1.934795122714661, 'max': 17.52711710346022, 'last': 2.0734688659151956}
+EP 3 baseline True control True preserved prefix_steps 99 exact True action_diff 0.0 state_diff 0.0
+  END {'executed_actions': 99, 'rollback_executed_steps': 0, 'rollback_join_steps': 0, 'rollback_replay_steps': 0, 'rollback_terminal_reason': None, 'policy_budget_reset_count': 0}
+  TARGETS []
+  SELECTED {} MASKED 0
+EP 4 baseline False control False unresolved prefix_steps 82 exact True action_diff 0.0 state_diff 0.0
+  END {'executed_actions': 402, 'rollback_executed_steps': 320, 'rollback_join_steps': 320, 'rollback_replay_steps': 0, 'rollback_terminal_reason': 'join_step_budget_exhausted', 'policy_budget_reset_count': 0}
+  TARGETS [('join', 28)]
+  SELECTED {'escape_axis_2_pos_0.25': 6, 'escape_axis_1_pos_0.25': 112, 'escape_axis_1_pos_1': 13, 'direct_0.25': 31, 'direct_0.5': 3, 'direct_1': 11, 'escape_axis_0_neg_0.25': 123, 'escape_axis_2_neg_0.25': 5, 'escape_axis_2_pos_0.5': 2, 'escape_axis_2_pos_1': 14} MASKED 137
+  SELF_MM {'first': 58.67211541451955, 'min': 57.683622217298726, 'max': 62.870858582235066, 'last': 62.870858582235066}
+PREFIX_ALL_EXACT True
+CATEGORIES {'unresolved': 4, 'preserved': 1}

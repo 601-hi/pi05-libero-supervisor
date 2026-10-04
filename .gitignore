@@ -1,0 +1,71 @@
+# Secrets and machine-specific access
+.ssh_research/
+**/authorized_keys
+*.pem
+*.key
+
+# Python / environments / caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Large checkpoints and raw datasets
+checkpoints/
+models/
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.parquet
+*.jsonl
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Scratch data and historical deployment staging
+work/
+remote_stage_20260923/
+remote_stage_20260927/
+
+# Generated media / arrays are excluded by default.
+*.npz
+*.npy
+*.mp4
+*.avi
+*.mov
+*.png
+*.jpg
+*.jpeg
+
+# The small causal release artifacts are intentionally versioned.
+!release/pi05-supervisor-v0.1-20261004/artifacts/snapshots/*.npz
+!release/pi05-supervisor-v0.1-20261004/artifacts/results/*.mp4
+
+# Keep technical Markdown reports under outputs, but exclude bulky derivatives.
+outputs/**/*.json
+outputs/**/*.csv
+outputs/**/*.tsv
+outputs/**/*.html
+outputs/**/*.pdf
+outputs/**/*.pkl
+outputs/**/*.gz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Local-only video assembly tools and intermediate frames.
+.video_tools/
+.video_work/
+

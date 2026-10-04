@@ -1,0 +1,29 @@
+{
+  "frozen_at": "2026-09-04T20:15:00+08:00",
+  "selection_split": "seed20 calibration only",
+  "visual_model": {
+    "path": "/root/gpufree-data/supervisor-results/visual_latent_v2/candidates/mlp_m1.pt",
+    "sha256": "795cedfd6237afe1898d1ab9532d1b1e381c1dc5e0db9b5adef6beb37fb8d9b3",
+    "kind": "mlp_2layer",
+    "margin": 1.0,
+    "margin_weight": 0.25,
+    "threshold": 0.998891055583954,
+    "projection_seed": 20260904,
+    "projection_dim_per_tensor": 64
+  },
+  "dynamics": {
+    "normal_sha256": "2dcbf34388ab8b6ba8af7c4fc3b5aaf64eaeb321db998c04f3bfa99e3ee0d40a",
+    "abnormal_sha256": "2541f73a4969b777e232ee6eef28993e09acf00e98624cbcc07e02838797ae39",
+    "fusion_config_sha256": "770ca35714e5bd2d86b26946bcaf109cceebb8cc131b444d03fc66f0d7953c8f"
+  },
+  "gate": "previous chunk contains at least one ambiguous_overlap dynamics state",
+  "causal_alignment": "visual observation at chunk k scores executed chunk k-1",
+  "visual_temporal_rule": "one decision per independent replan observation; no repeated-step 2-of-3",
+  "calibration": {
+    "base_detections": 26,
+    "cascade_detections": 27,
+    "normal_episode_false_alarms": 1,
+    "conditional_ambiguous_auc": 0.7031272940831008
+  },
+  "test_policy": "run seed21 once without changing any field in this manifest"
+}

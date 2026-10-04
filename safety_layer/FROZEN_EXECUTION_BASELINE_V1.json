@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "status": "frozen_reference_not_claimed_as_final_deployment",
+  "scope": "LIBERO spatial seed21 independent evaluation",
+  "evaluation": {
+    "episodes": 80,
+    "normal_episodes": 23,
+    "normal_episode_false_alarms": 1,
+    "abnormal_episodes": 57,
+    "abnormal_episode_detections": 50,
+    "active_step_recall": 0.7105263157894737,
+    "inactive_step_alarm_rate": 0.00831551437396056
+  },
+  "fusion": {
+    "version": 2,
+    "persistence_required": 2,
+    "persistence_window": 3,
+    "ratio_abnormal_threshold": 2.953466270601944,
+    "unknown_novelty_threshold": 33.63427436663856,
+    "four_states": ["normal", "known_abnormal", "unknown_abnormal", "ambiguous_overlap"]
+  },
+  "artifact_paths_remote": {
+    "normal_expert": "/root/gpufree-data/supervisor-results/conditional_normal_dynamics_expert_frozen_v2.pt",
+    "abnormal_expert": "/root/gpufree-data/supervisor-results/abnormal_dynamics_expert_frozen_candidate_v1.pt",
+    "fusion": "/root/gpufree-data/supervisor-results/two_expert_fusion_frozen_v1.json",
+    "evaluation": "/root/gpufree-data/supervisor-results/two_expert_seed21_final_evaluation_v1.json"
+  },
+  "sha256": {
+    "normal_expert": "2dcbf34388ab8b6ba8af7c4fc3b5aaf64eaeb321db998c04f3bfa99e3ee0d40a",
+    "abnormal_expert": "2541f73a4969b777e232ee6eef28993e09acf00e98624cbcc07e02838797ae39",
+    "fusion": "f47d92091d9747c99c0a2e5a5560885948769c4aeaee10fc800e799cabef1969",
+    "evaluation": "4269e103dc8fd833110e518ea6fd825fa6014312f533b93ebb168125288d781d",
+    "fusion_code": "ae52ba600239089db9a42961553c04683d1e4b031d32807770f64f28a2481104",
+    "evaluation_code": "8a9fb6c6daafe141915412f09ec12d40c26191da56f4dd3a3d329a830fd217a2"
+  },
+  "fair_comparison_rule": "New modules must use the same independent episodes and must report both added detections and added normal alarms."
+}

@@ -1,0 +1,61 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+INFO:root:Task suite: libero_90
+INFO:root:Waiting for server at ws://0.0.0.0:8000...
+INFO:root:Supervisor enabled: {'instruction_guard': 'active', 'execution_consistency': 'frozen_calibrated_four_state_conditional_ensemble', 'visual_routing': 'execution_ambiguity_with_gripper_interaction_phase', 'object_result': 'explicit_null_contact_diagnosis', 'policy_stall': 'active', 'execution_models': ['/root/gpufree-data/supervisor-tools-v1/outputs/remote_results/reliability_sequence_v1/conditional_relational_pilot_seed202609121.pt', '/root/gpufree-data/supervisor-tools-v1/outputs/remote_results/reliability_sequence_v1/conditional_relational_pilot_seed202609122.pt', '/root/gpufree-data/supervisor-tools-v1/outputs/remote_results/reliability_sequence_v1/conditional_relational_pilot_seed202609123.pt', '/root/gpufree-data/supervisor-tools-v1/outputs/remote_results/reliability_sequence_v1/conditional_relational_pilot_seed202609124.pt', '/root/gpufree-data/supervisor-tools-v1/outputs/remote_results/reliability_sequence_v1/conditional_relational_pilot_seed202609125.pt'], 'execution_calibration': '/root/gpufree-data/supervisor-tools-v1/outputs/remote_results/reliability_sequence_v1/conditional_reliability_calibration.json', 'articulation_progress': 'online_calibrated_control', 'articulation_control_enabled': True, 'isolated_articulation_control': True, 'articulation_calibration_id': 'libero90-task0-close-area-v1', 'articulation_sidecar': '127.0.0.1:8766'}
+  0%|          | 0/1 [00:00<?, ?it/s]/root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+
+  0%|          | 0/1 [00:00<?, ?it/s][AINFO:root:
+Task: close the top drawer of the cabinet
+INFO:root:Starting episode 1...
+WARNING:root:Complex rollback reached safe stop
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 1
+INFO:root:# successes: 0 (0.0%)
+
+100%|██████████| 1/1 [01:31<00:00, 91.84s/it][A100%|██████████| 1/1 [01:31<00:00, 91.84s/it]
+INFO:root:Current task success rate: 0.0
+INFO:root:Current total success rate: 0.0
+100%|██████████| 1/1 [01:33<00:00, 93.15s/it]100%|██████████| 1/1 [01:33<00:00, 93.15s/it]
+INFO:root:Total success rate: 0.0
+INFO:root:Total episodes: 1
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f2c83d068b0>
+Traceback (most recent call last):
+  File "/root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f2c6eaacac0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2c83d60c40>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2c83d60c40>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f2c83d608c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f2c83d06700>
+Traceback (most recent call last):
+  File "/root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/root/gpufree-data/vla-workspace/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f2c6eaacac0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2c83d60c40>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f2c83d60c40>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f2c83d608c0>,
+	),
+	result = 0
+)

@@ -1,0 +1,34 @@
+/root/gpufree-data/supervisor-tools-v1/cross_suite_generalization/train_natural_multiresponse_dual_expert.py:152: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  opt.zero_grad();loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),10);opt.step();losses.append(float(loss))
+{"held_out_group": {"suite": "libero_90", "task_id": 0}, "test": {"episodes": 15, "successes": 1, "failures": 14, "score_mean_auc": 1.0, "score_q90_auc": 0.2857142857142857, "score_max_auc": 0.42857142857142855, "positive_fraction_auc": 0.7142857142857143, "q90_threshold": -11.957509517669678, "success_alarm_rate": 1.0, "failure_detection_rate": 0.9285714285714286}}
+{"held_out_group": {"suite": "libero_90", "task_id": 29}, "test": {"episodes": 15, "successes": 6, "failures": 9, "score_mean_auc": 0.6296296296296297, "score_q90_auc": 0.9814814814814815, "score_max_auc": 0.7222222222222222, "positive_fraction_auc": 0.6574074074074074, "q90_threshold": -12.279385089874268, "success_alarm_rate": 1.0, "failure_detection_rate": 1.0}}
+{"held_out_group": {"suite": "libero_spatial", "task_id": 9}, "test": {"episodes": 15, "successes": 14, "failures": 1, "score_mean_auc": 0.8571428571428571, "score_q90_auc": 0.7142857142857143, "score_max_auc": 0.7857142857142857, "positive_fraction_auc": 1.0, "q90_threshold": -5.4957334995269775, "success_alarm_rate": 1.0, "failure_detection_rate": 1.0}}
+{
+  "label_semantics": "weak episode-level natural outcome risk; not hardware fault",
+  "target_used": "22D joint/eef/gripper response",
+  "episode_equalized_sampling": true,
+  "episodes": 120,
+  "successes": 96,
+  "failures": 24,
+  "failure_groups": [
+    {
+      "suite": "libero_90",
+      "task_id": 0
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 29
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 9
+    }
+  ],
+  "final": {
+    "normal_rows": 8911,
+    "abnormal_rows": 2304,
+    "final_loss": -8.023185280391148,
+    "checkpoint": "natural_multiresponse_dual_expert.pt"
+  }
+}

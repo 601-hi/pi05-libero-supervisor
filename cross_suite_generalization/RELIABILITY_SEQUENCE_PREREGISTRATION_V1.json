@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "registered_before_new_target_holdout": true,
+  "purpose": "Calibrate when dual-expert evidence is supported and stable, then accumulate causal evidence without treating unknown as normal.",
+  "training_and_calibration": {
+    "allowed": [
+      "DROID accepted training episodes for independently initialized or episode-bootstrap dual experts",
+      "DROID held-out calibration episodes for absolute support, ensemble disagreement and likelihood-ratio gates",
+      "synthetic response scales 0.25, 0.50 and 0.75 derived only from DROID calibration responses"
+    ],
+    "forbidden": [
+      "LIBERO-10 fitting or threshold selection",
+      "future target holdout fitting",
+      "reward, success, disturbance-active flag, object state or simulator contact oracle as runtime inputs"
+    ]
+  },
+  "reliability": {
+    "support_statistic": "empirical percentile of max(log p_normal, log p_abnormal) against pooled source calibration",
+    "stability_statistic": "one minus empirical percentile of across-ensemble likelihood-ratio standard deviation",
+    "sensor_quality": "minimum of timestamp, finite-value, EEF-jump and joint-speed validity checks",
+    "combination": "minimum(support, stability, sensor_quality)",
+    "low_reliability_behavior": "unknown/abstain; never convert directly to normal evidence"
+  },
+  "four_states": ["known_normal", "known_abnormal", "ambiguous_overlap", "unknown"],
+  "sequence": {
+    "form": "risk_t=max(0, decay*risk_previous + reliability*clip(likelihood_ratio) - drift)",
+    "causal": true,
+    "alarm_hysteresis": true,
+    "persistent_unknown": "protective_observation request"
+  },
+  "parameters_to_freeze_on_source_calibration": [
+    "normal and abnormal likelihood-ratio gates",
+    "minimum reliability",
+    "evidence clip",
+    "decay",
+    "drift",
+    "alarm and reset thresholds",
+    "unknown patience"
+  ],
+  "acceptance_checks_before_target_test": [
+    "at least three independent ensemble members",
+    "normal gate strictly below abnormal gate",
+    "calibration artifact marked source_only with input hashes",
+    "isolated source-normal spikes do not trigger sustained alarms",
+    "persistent unknown is surfaced as protective observation",
+    "all runtime and leakage tests pass"
+  ],
+  "evaluation": {
+    "primary": ["normal episode false-alarm rate", "abnormal episode detection", "detection delay", "persistent-unknown rate"],
+    "secondary": ["active-step recall", "inactive-step alarm rate", "coverage of non-unknown decisions"],
+    "reporting_rule": "Report coverage and unknown rate together with accuracy; never improve apparent accuracy by abstaining silently."
+  }
+}

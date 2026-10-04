@@ -1,0 +1,68 @@
+{
+  "schema_version": 2,
+  "audit_date": "2026-09-08",
+  "dataset_release": "DROID RLDS / public collection code",
+  "official_metadata_objects": {
+    "dataset_info.json": {"size_bytes": 760, "md5_base64": "JOcTGdwePw+iymeLhrqavg=="},
+    "features.json": {"size_bytes": 18665, "md5_base64": "AUayWu2IHU/GMy61byaQpg=="}
+  },
+  "verified_from_primary_sources": {
+    "rlds_fields": [
+      "step.action_dict.cartesian_position",
+      "step.action_dict.cartesian_velocity",
+      "step.action_dict.joint_position",
+      "step.action_dict.joint_velocity",
+      "step.action_dict.gripper_position",
+      "step.action_dict.gripper_velocity",
+      "step.observation.cartesian_position",
+      "step.observation.joint_position",
+      "step.observation.gripper_position"
+    ],
+    "collection_rate_hz": 15.0,
+    "robot": "Franka Panda",
+    "collection_code_default_action_space": "cartesian_velocity",
+    "state_cartesian_representation": "position_xyz plus Euler orientation as produced by FrankaRobot.get_robot_state",
+    "gripper_state_semantics": "1 - measured_width / maximum_width",
+    "action_dict_provenance": "create_action_dict computes equivalent Cartesian and joint representations from the selected action space and current robot state"
+  },
+  "unresolved_or_not_present_in_rlds_schema": [
+    "per-step measured timestamps",
+    "explicit per-episode declaration of the original selected action_space",
+    "formal reference-frame declaration in the published RLDS schema",
+    "formal units declaration attached to each RLDS feature",
+    "proof that no frames were dropped before RLDS conversion",
+    "exact semantics of step observation relative to command dispatch for every release version"
+  ],
+  "known_schema_warning": "The flattened action has shape 7 but is described as '[6x joint velocities, 1x gripper position]'; this is incompatible with a 7-joint Franka interpretation. The adapter forbids this field and uses explicitly named action_dict fields.",
+  "rlds_absent_measured_fields": ["joint_velocity", "motor_torques_measured", "controller latency", "per-step timestamps"],
+  "decoded_official_sample_audit": {
+    "selection_rule": "shard indices 6, 9, 19, and 29 were fixed before trajectory-value inspection to span early, middle, and late indices while keeping the pilot small",
+    "source_manifest": "outputs/remote_results/droid_schema_pilot/preregistered_shards_manifest.json",
+    "report": "outputs/remote_results/droid_schema_pilot/droid_multi_episode_alignment_v2.json",
+    "episodes": 6,
+    "steps": 860,
+    "images_inspected_or_exported": false,
+    "reward_success_or_language_used": false,
+    "pooled_best_lag_steps": {"translation": 2, "rotation_unwrapped_euler": 1, "joint": 1},
+    "well_aligned_episode_pattern": "five of six episodes have translation best lag 2; rotation and joint best lags are 1 or 2",
+    "unresolved_episode_pattern": "one 50-step episode has ordinary command RMS but roughly one order lower measured-response RMS and near-zero command/response correlation in all three modalities",
+    "conclusion": "zero-lag adjacency is falsified as a universal alignment rule; a single fixed release-wide lag is not yet justified"
+  },
+  "official_policy_transform_audit": {
+    "source": "https://raw.githubusercontent.com/droid-dataset/droid_policy_learning/master/robomimic/utils/rlds_utils.py",
+    "policy_action_field": "action_dict.cartesian_position converted to xyz plus 6D rotation plus gripper position",
+    "policy_training_shift": "robomimic_transform emits trajectory action index 1 onward",
+    "dynamics_warning": "imitation-learning label shift is not evidence of physical command-response timing"
+  },
+  "decision": {
+    "adapter_code_status": "synthetic_contract_tests plus decoded official multi-episode audit",
+    "training_use_allowed": false,
+    "reason": "Most audited episodes show a 1-2 frame response delay, while one episode shows no usable alignment in any motion modality. Without per-step timestamps and the episode's original selected action_space, these cases cannot be safely pooled as one command-to-response training distribution."
+  },
+  "primary_sources": [
+    "https://droid-dataset.github.io/droid/the-droid-dataset",
+    "https://github.com/droid-dataset/droid/blob/main/droid/franka/robot.py",
+    "https://www.jiajunwu.com/papers/droid_rss.pdf",
+    "https://github.com/droid-dataset/droid_policy_learning/blob/master/examples/droid_dataloader.py"
+  ]
+}

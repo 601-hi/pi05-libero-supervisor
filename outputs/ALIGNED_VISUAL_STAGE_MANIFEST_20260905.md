@@ -1,0 +1,75 @@
+# Correctly aligned visual stage manifest
+
+Date: 2026-09-05  
+Encoding: UTF-8  
+Status: calibration-only; no frozen visual test performed
+
+## Immutable data split
+
+- visual-response fit: seed18 and seed19, 80 episodes, 8649 rows;
+- threshold/diagnostic calibration: seed20, 40 episodes, 4341 rows;
+- previous seed21 is a hard-negative development set and must not become a final test set;
+- future calibration/frozen test: seed22/seed23;
+- full `libero_10` suite remains held out.
+
+Correct temporal alignment: `action_j -> pre_action_frame_j to pre_action_frame_j_plus_1`. Exactly one final action per episode is invalid because no post-action image exists.
+
+## Remote aligned artifacts
+
+- `/root/gpufree-data/supervisor-results/visual_motion_train_seed18_19_aligned_v2.npz`
+- `/root/gpufree-data/supervisor-results/visual_motion_calibration_seed20_aligned_v2.npz`
+- `/root/gpufree-data/supervisor-results/visual_motion_response_aligned_v4.npz`
+- `/root/gpufree-data/supervisor-results/visual_motion_response_calibration_aligned_v4.npz`
+- `/root/gpufree-data/supervisor-results/visual_motion_response_calibration_aligned_v4.json`
+- `/root/gpufree-data/supervisor-results/visual_flow_cascade_aligned_budget{0,1,2}_v1.json`
+- `/root/gpufree-data/supervisor-results/visual_flow_rescue_diagnostic_aligned_v1.json`
+
+## Remote artifact SHA-256
+
+```text
+526c9b3ab8b7d8286905c9c716fe8fd6d8781536adf8836d0321689739646e04  visual_motion_train_seed18_19_aligned_v2.npz
+bdc2e991d664bb4ca0cea4f42a3c75da2c764696832585fee3ffb3c499223d9e  visual_motion_calibration_seed20_aligned_v2.npz
+b7d52d34f6909095a20fffc108ae103df2a4d74132fdbe3abe77c638c38095d3  visual_motion_response_aligned_v4.npz
+e313dcc7327370be6f62efbccc2b490113f70ce3560c7cbf292c47776a241b78  visual_motion_response_calibration_aligned_v4.npz
+530758feeb2ac319aa6e11350bfed1338d5924d61b9fc66b426c5f154bd25697  visual_motion_response_calibration_aligned_v4.json
+7db0c4de6dc09a03c391b1c250af63055d82528d4aa20292067ab36e8ff98250  visual_flow_cascade_aligned_budget0_v1.json
+ebbdf576a3718106fcb160962e5a4a6b48e998f5aff077f8909d5c9804909f84  visual_flow_cascade_aligned_budget1_v1.json
+438b9f292789cc8ba758bcf60ea6a08cb4b2ffe77f8893cc55f88f5548a37ad3  visual_flow_cascade_aligned_budget2_v1.json
+ddc33cca46b38365258f839bf057e3990269db3349d4f47845185c1e6a1d73b0  visual_flow_rescue_diagnostic_aligned_v1.json
+```
+
+## Local code SHA-256
+
+```text
+59AFBFDBE84DB4AB6439F751C23840B8A544DC96282AB5689FB55852456039F0  export_visual_motion_features.py
+61E0C307AE25DBB76FB7C59F23D21273B066F87EA6799DA44D65DBBD9A0592F7  realign_visual_motion_features.py
+64CB0E66A7D8D05A8A2D776CDE11F1522E84CFE91E2C277AA33B2F4E2A44BFAF  evaluate_visual_flow_cascade.py
+CF2F4914FE1FCD45856C710D5393D0181959134A80D9EACDAABC1F6A986C3D1E  diagnose_visual_flow_rescue.py
+64FE062836B60F3177A452F3D8F953CE31234B130234A4BAE17820E269E8F84B  visual_latent_v2/train_visual_motion_response.py
+8BE19A408D7BFB77D4EDB21BEE6951F2F36E9FB6A217DA3F5D75D4D1B1821E87  visual_latent_v2/visual_motion_response.py
+3E5C135486A02C201CDAF2F0695BE77569587C1ECD9093E912B2BA9D6C850134  visual_latent_v2/export_wrist_multiscale_motion.py
+34AA8CDCDC6C045B09D925010654E46C6EFA391B6753168DACC6ADABC3591CF1  visual_latent_v2/test_wrist_multiscale_motion.py
+7EFBB502257853913333822B2A13B59EE82ADF667041DA02B16254124215CA26  visual_latent_v2/analyze_wrist_cross_suite_pilot.py
+E5E71809E7F23B13187AFC9BC74D31EDC68A8ABDE62A96F3270D09E51AD2F010  visual_latent_v2/build_wrist_response_dataset.py
+B6F547264D0F6DCC13CC334F23C1E14331BFFE6ACCCE33240BDB325E0648FB5F  visual_latent_v2/evaluate_wrist_response_loso.py
+A0DF8B0C3A1E8F73097E3D1FD3166E740095A780B870860A5FEFB0A8E2E99B29  cross_suite_generalization/run_wrist_development_seed31_v1.sh
+```
+
+Wrist pilot artifacts:
+
+```text
+5564bf12aaa1120f343ed3410a5b8cf0354b4e8ec27c79618ba4fd8bb5afb795  wrist_multiscale_pilot_object_task0_normal_v1.npz
+6c297601c16516f3e619ef42794e5df2f7aee0f1dfb02d42bece23552ad8d9cc  wrist_multiscale_pilot_object_task0_scale050_v1.npz
+71ceca9cfec2c4f6fd03794aaec8ff91565634d7bf0be58fb5d505cc6b61a184  wrist_response_cross_suite_pilot_dataset_v1.npz
+d0c3ce491cd538f103c449985bee309f7ea9c32f2ffd7bbc35ed4f14620ebe01  wrist_cross_suite_paired_observability_v2.json
+e9c301dacdc0c02c2b5a208288e0e18af8f7775ccf51a3effabe469f26cc6f50  wrist_response_cross_suite_loso_v3.json
+50c202c9cb7e68b1ee5230489c0396ae78958d8b82183eff301fbd05fbd0ec78  wrist_response_cross_suite_loso_motion_invariant_v1.json
+1fb3de1930d10035a5b2c3816628b3bd94540c2bc756528c21da736969344e88  wrist_response_cross_suite_loso_support_gated_v1.json
+```
+
+## Guardrails
+
+1. Never combine an `aligned` visual score with a row-mismatched dynamics dataset.
+2. Never cite the superseded AUC 0.734/0.549 as a final result.
+3. Do not tune a visual threshold on seed21 or `libero_10`.
+4. Record model/data/config hashes together before the next frozen evaluation.

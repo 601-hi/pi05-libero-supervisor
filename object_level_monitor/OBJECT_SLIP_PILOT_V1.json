@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-07",
+  "purpose": "Create an execution fault in which robot commands and end-effector motion can remain nominal while the manipulated object slips or is lost.",
+  "monitor_input_policy": {
+    "allowed": ["rgb", "wrist_rgb", "robot_proprioception", "intended_action", "executed_action"],
+    "forbidden": ["oracle_only_*", "simulator_object_pose", "simulator_contact", "reward", "success"]
+  },
+  "paired_rollout_controls": {
+    "fixed_policy_sampling_noise": true,
+    "fixed_libero_initial_state": true,
+    "require_exact_pre_onset_action_and_state_match": true
+  },
+  "tasks": [
+    {"suite": "libero_object", "task_id": 0, "target_name": "alphabet_soup_1"},
+    {"suite": "libero_goal", "task_id": 2, "target_name": "wine_bottle_1"}
+  ],
+  "trigger": {
+    "type": "oracle_fault_generator_only",
+    "rise_threshold_m": 0.03,
+    "lift_consecutive_steps": 2,
+    "requires_gripper_close_intent": true
+  },
+  "severity_ladder": [
+    {"name": "friction_only", "friction_scale": 0.0, "downward_force_weight_ratio": 0.0, "num_steps": 20},
+    {"name": "weak_weight_force", "friction_scale": 0.0, "downward_force_weight_ratio": 0.25, "num_steps": 20},
+    {"name": "moderate_weight_force", "friction_scale": 0.0, "downward_force_weight_ratio": 0.5, "num_steps": 20}
+  ],
+  "stopping_rule": "For each task, stop escalating at the first severity that produces measurable object loss without directly changing robot action or EEF state.",
+  "acceptance_checks": [
+    "default-off fixed-noise rollout remains exactly reproducible",
+    "all pre-onset intended actions, executed actions, and robot states match the paired normal rollout",
+    "object-slip labels are oracle_only_ fields and rejected from detector features",
+    "robot action is not modified by the object-slip injector",
+    "friction and external wrench are restored at episode end",
+    "report object-relative-to-gripper displacement and task success separately"
+  ]
+}

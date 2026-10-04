@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "registered_at": "2026-09-11T09:45:00+08:00",
+  "status": "freeze_before_first_libero_10_access",
+  "primary_model": "relational_dual_expert_progress_margin1_v3.pt",
+  "primary_score": "three-step causal mean of abnormal_logp minus normal_logp",
+  "source_thresholds": ["DROID calibration q95", "DROID calibration q99"],
+  "primary_threshold": "DROID calibration q99",
+  "frozen_three_step_threshold_values": {"q95": 1.9937825560569762, "q99": 2.1640509033203124},
+  "features": "six lagged dimensionless directed translation progress values",
+  "training": {
+    "normal": "DROID-100 accepted train episodes only",
+    "abnormal": "DROID responses multiplied by 0.25, 0.5, and 0.75 only",
+    "libero_data_used": false,
+    "explicit_margin": 2.0,
+    "margin_weight": 1.0
+  },
+  "sealed_test": {
+    "suite": "libero_10",
+    "task_ids": [1, 3, 5, 7, 9],
+    "episodes_per_task_condition": 2,
+    "environment_seed": 32,
+    "sampling_noise_seed": 2026090532,
+    "replan_steps": 5,
+    "conditions": {"normal": 1.0, "scale025": 0.25, "scale050": 0.5, "scale075": 0.75},
+    "disturbance_start_mode": "random",
+    "random_start_range_inclusive": [30, 80],
+    "disturbance_steps": 10
+  },
+  "metrics": [
+    "normal episode false alarms",
+    "abnormal episode detection during active interval",
+    "active-step recall",
+    "inactive-step alarm rate",
+    "first-alarm delay",
+    "task success reported separately"
+  ],
+  "comparators": ["lag1 directed-progress source threshold", "relational dual expert full-v1", "raw DROID response encoder"],
+  "sha256": {
+    "model": "0d872d7bcd6feae2a0f09b94472d27dd2f6a2b7f2a7ad1c487af3842383dfddb",
+    "training_and_feature_code": "9adf250ba66f4b5584ae227ea109d77190f314ccbf12ffda48001e8b7af2bb5e",
+    "libero_scoring_code": "25010adc0bb09fd077f93a047b3cb52303b960342303f327d470ae7ec9cab6f1",
+    "libero_adapter_code": "f6c9e1c474ca1d4eb7a91b4da4375b86076f7cc40d128b6e6cc69db4cfc467c9",
+    "collection_script": "59d2f2f5a44049cc35965b988e691568af3bdffc040ccaf729091a6b4f7faaae",
+    "remote_monitoring_main": "7f525b20df9d4407bac479fa373ef912ece91008d68fc0e525bb3d2f88a522dc",
+    "remote_policy_server": "e0b9ad037a12202244fc0161be3e554e8938111863c24d51bcc39c0847f3c09f"
+  },
+  "forbidden_after_opening": [
+    "refit weights or feature normalization on libero_10",
+    "select thresholds from libero_10",
+    "drop tasks or episodes after inspecting results",
+    "use task id, reward, success, disturbance flag, images, or object state as detector inputs"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "registered_at": "2026-09-04T00:00:00+08:00",
+  "representation": {
+    "source": "pi0.5 PaliGemma.img output",
+    "cameras": ["base_0_rgb", "left_wrist_0_rgb"],
+    "input_grid": [16, 16],
+    "pooled_grid": [4, 4],
+    "embedding_dim_expected": 2048,
+    "storage_dtype": "float16",
+    "cadence": "one latent per policy inference/chunk"
+  },
+  "splits": {
+    "train": [18, 19],
+    "calibration": [20],
+    "frozen_test": [21]
+  },
+  "candidate_heads": [
+    {"name": "logistic", "random_projection_dim_per_tensor": 64, "margin": [0.0, 0.5, 1.0]},
+    {"name": "mlp_2layer", "hidden": [64, 32], "random_projection_dim_per_tensor": 64, "margin": [0.5, 1.0]}
+  ],
+  "gate": "dual_expert_state == ambiguous_overlap",
+  "temporal_rule": "dynamics remains causal 2-of-3 steps; visual evidence is counted only once per independent replan observation",
+  "acceptance": {
+    "max_normal_episode_false_alarms": 1,
+    "min_abnormal_episode_detections": 51,
+    "baseline_abnormal_episode_detections": 50,
+    "baseline_abnormal_episodes": 57,
+    "baseline_scale075_detections": 14,
+    "baseline_scale075_episodes": 19,
+    "require_multi_task_gain": true,
+    "require_exact_action_invariance": true
+  }
+}

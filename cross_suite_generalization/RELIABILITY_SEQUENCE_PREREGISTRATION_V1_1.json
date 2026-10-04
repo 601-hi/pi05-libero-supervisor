@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.1",
+  "registered_after": "v1 source-only overlap failure",
+  "registered_before": "any target-domain scoring with the ensemble",
+  "v1_failure_preserved": {
+    "normal_q90_gate": 1.6271440029144297,
+    "abnormal_q10_gate": -1.6834911346435546,
+    "reason": "The requested 90% per-class coverage regions overlap, so v1 correctly refused deployment."
+  },
+  "source_diagnostic_evidence": {
+    "reserved_sequence_half_single_step_auc": 0.760710257605195,
+    "normal_lr_median": -0.9280049204826355,
+    "synthetic_abnormal_lr_median": 1.339913785457611,
+    "interpretation": "Ranking signal exists but cannot support 90% confident coverage for both classes."
+  },
+  "v1_1_change": {
+    "normal_lr_quantile": 0.50,
+    "abnormal_lr_quantile": 0.50,
+    "meaning": "Selective state gates: at least half of each source class lies on its confident side; the interval between gates is explicitly ambiguous.",
+    "not_an_alarm_threshold": true
+  },
+  "unchanged": [
+    "five already-trained source-only ensemble members",
+    "even calibration episodes fit reliability and gates",
+    "odd calibration episodes tune sequence parameters",
+    "support, stability and sensor-quality definitions",
+    "unknown is never converted to normal",
+    "all LIBERO-10 data forbidden for fitting and selection"
+  ],
+  "failure_conditions": [
+    "median gates still overlap",
+    "no sequence candidate meets source normal-episode false-alarm constraint",
+    "frozen tests or hashes fail"
+  ]
+}
