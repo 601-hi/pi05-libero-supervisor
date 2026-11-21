@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="π0.5 LIBERO 研究演示，展示视觉与执行监督、PPO 补救和历史回退。">
+<title>π0.5 · LIBERO 监督与补救</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap"><a class="brand" href="./">π0.5 <span>/ LIBERO</span></a><nav><a href="#demo">演示</a><a href="#results">实验结果</a><a href="https://github.com/601-hi/pi05-libero-supervisor">GitHub ↗</a></nav></header>
+<main class="wrap">
+<section class="hero">
+<div><p class="eyebrow">ROBOT POLICY RECOVERY · LIBERO</p><h1>发现异常，<br><em>再接着完成任务。</em></h1><p class="intro">用视觉与指垫反馈发现抓取失载，由 PPO 补救或回到历史抓取参考位，再交还 π0.5 重规划。</p><a class="button" href="#demo">看四路对照 ↓</a></div>
+<aside><span>在线配对实验</span><strong>4<small> 项任务</small></strong><strong>6<small> 个起始布局</small></strong><strong>+1<small> 个独立失败起点被救回</small></strong></aside>
+</section>
+<section id="demo">
+<div class="heading"><div><p class="eyebrow">DEMONSTRATION</p><h2>同一起点，四种处理</h2></div><a href="2026-11-20/four-way-zh.mp4" download>下载视频 ↓</a></div>
+<video id="clip" controls playsinline preload="metadata" poster="2026-11-20/overview.png" aria-label="瓶架任务四路中文标注对照"><source src="2026-11-20/four-way-zh.mp4" type="video/mp4"></video>
+<div class="chapters" aria-label="视频章节">
+<button data-time="0"><span>00:00</span>原计划执行</button>
+<button data-time="9.2"><span>00:09.2</span>失载报警与介入</button>
+<button data-time="13.2"><span>00:13.2</span>PPO 交接</button>
+<button data-time="13.3"><span>00:13.3</span>历史回退交接</button>
+<button data-time="27.7"><span>00:27.7</span>PPO 松手复核</button>
+</div>
+<p class="note">四栏依次为原策略、立即重规划、PPO 补救、视觉引导历史回退。录像在各栏画面之外标注控制权交接与结果。</p>
+</section>
+<section id="results"><p class="eyebrow">PAIRED EVALUATION</p><h2>松手后仍完成，才计为成功</h2>
+<div class="findings"><div><h3>正常条件</h3><p><b>5/6</b> 各策略稳定成功，无报警。</p></div><div><h3>人工低摩擦</h3><p><b>3/6 → 4/6</b> 保持原策略与示范初始化 PPO 的对照。</p></div></div>
+<p>主对照涵盖 72 个回合，另有 12 个交接种子复核回合。两个种子下救回的是同一个瓶架布局，松手后酒瓶分别下落 3.67 cm 和 2.81 cm。历史回退在另一个训练侧布局通过复核。</p>
+<div class="links"><a href="https://github.com/601-hi/pi05-libero-supervisor/tree/main/docs/2026-11-20">实验协议与复现记录 ↗</a><a href="https://github.com/601-hi/pi05-libero-supervisor/releases/tag/v0.1.0">抽屉自然失败案例 ↗</a></div>
+</section>
+</main><footer class="wrap">Wang Zihan · Harbin Institute of Technology</footer>
+<script>
+const video = document.querySelector('#clip');
+for (const button of document.querySelectorAll('[data-time]')) {
+  button.addEventListener('click', () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+  });
+}
+</script>
+</body>
+</html>

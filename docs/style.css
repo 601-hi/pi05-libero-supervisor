@@ -1,0 +1,35 @@
+:root{color-scheme:dark;--bg:#101518;--panel:#192226;--text:#eff6f4;--muted:#b3c4c5;--mint:#a4f4d2;--line:#35444b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);background:radial-gradient(ellipse at 72% 0%,#20362f 0,transparent 37rem),var(--bg);font:16px/1.7 "Geist","Microsoft YaHei",system-ui,sans-serif}
+.wrap{max-width:1200px;width:calc(100% - 64px);margin:auto}
+header,footer{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+a{color:var(--mint);text-underline-offset:5px}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+.brand{font-size:22px;font-weight:800;color:var(--text);text-decoration:none}
+.brand span,.note,footer,aside>span,small{color:var(--muted)}
+.hero{display:grid;grid-template-columns:1fr 290px;gap:42px;align-items:end;padding:75px 0 68px}
+.eyebrow{color:var(--mint);letter-spacing:.17em;font:700 .76rem/1.6 "IBM Plex Mono",monospace}
+h1,h2,h3,p{margin:0 0 .65em}
+h1{font-size:clamp(2.35rem,6vw,5.3rem);line-height:1.1;letter-spacing:-.055em;margin:.22em 0 .35em}
+em{color:var(--mint);font-style:normal}
+.intro{max-width:38rem;color:var(--muted);font-size:1.1rem;margin-bottom:1.55rem}
+.button{display:inline-block;background:var(--mint);color:#102620;padding:10px 20px;border-radius:7px;font-weight:750;text-decoration:none}
+aside,.findings>div{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:20px}
+aside strong{display:block;font-size:2.1rem;line-height:1.45}
+small{font-size:.85rem;font-weight:500}
+.heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:12px}
+h2{font-size:clamp(1.5rem,4vw,2.45rem);line-height:1.2}
+video{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:#0b1013}
+.chapters{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0}
+button{font:inherit;color:var(--text);text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:7px;padding:8px 12px;cursor:pointer}
+button:hover,button:focus-visible{border-color:var(--mint)}
+button span{display:block;color:var(--mint);font: .82rem monospace}
+#results{margin:60px 0}
+.findings{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.findings b{font-size:1.3rem;color:var(--mint)}
+.links{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px}
+footer{border-top:1px solid var(--line);border-bottom:0}
+@media(max-width:720px){.wrap{width:calc(100% - 32px)}.hero{grid-template-columns:1fr;gap:24px;padding:42px 0}.chapters{grid-template-columns:repeat(2,1fr)}nav{gap:10px;font-size:.88rem}.brand{font-size:17px}}
+@media(max-width:420px){.findings{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
