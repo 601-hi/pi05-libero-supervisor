@@ -1,5 +1,7 @@
 <div align="center">
 
+**[▶ Open the interactive project website](https://601-hi.github.io/pi05-libero-supervisor/)** · [Read the v0.2.0 release notes](https://github.com/601-hi/pi05-libero-supervisor/releases/tag/v0.2.0)
+
 # π0.5 · LIBERO 监督与补救
 
 **从异常检测到恢复动作，再交还 π0.5 重规划**
@@ -41,3 +43,4 @@
 ## 作者
 
 Wang Zihan · Harbin Institute of Technology。引用或展示本项目时请注明作者与仓库来源。
+
