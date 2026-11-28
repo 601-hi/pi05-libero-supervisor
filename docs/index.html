@@ -32,7 +32,9 @@
 <div class="links"><a href="https://github.com/601-hi/pi05-libero-supervisor/tree/main/docs/2026-11-20">实验协议与复现记录 ↗</a><a href="https://github.com/601-hi/pi05-libero-supervisor/releases/tag/v0.1.0">抽屉自然失败案例 ↗</a></div>
 </section>
 <section id="multi-fault"><h2>从酒瓶上架到五项任务：160 个回合的配对实验</h2>
-<div class="findings"><div><h3>LIBERO 任务成功率</h3><p><b>82.5% → 85.0%</b> 不介入完成 66/80 组，开启监督完成 68/80 组。</p></div><div><h3>逐组对照</h3><p><b>2 组救回，0 组损失</b> 原本失败的 14 组中救回 2 组，原本成功的 66 组全部保住。</p></div></div>
+<div class="findings"><div><h3>LIBERO 任务成功率</h3><p><b>85.0%（68/80）</b> 开启监督后，五项任务在八种工况下的总体完成率。</p></div><div><h3>原有成功保持率</h3><p><b>100%（66/66）</b> 配对中原本能完成的任务，开启监督后全部完成。</p></div></div>
+<div class="findings"><div><h3>视觉分离告警命中率</h3><p><b>100%（4/4）</b> 由视觉分离首次触发介入的四组，其不介入对照均失败。</p></div><div><h3>历史回退交接率</h3><p><b>71.4%（5/7）</b> 七次物理回退中，五次到达历史参照点并交回 π0.5 重新规划执行。</p></div></div>
+<p>三项入篮任务的完成率为 <strong>97.9%（47/48）</strong>，其中字母汤罐和奶酪各完成 16/16，沙拉酱完成 15/16。</p>
 <p>八种工况中，两次挽救分别发生在竖直运动受阻后的酒瓶入柜，以及短时失摩擦后的酒瓶上架。两组都在历史回退后交回 π0.5 重规划。</p>
 <video controls playsinline preload="metadata" style="width:100%;height:auto" aria-label="酒瓶入柜同起点对照：左侧不介入，右侧视觉告警后回退并重规划" src="2026-11-28/cabinet-z-stall-pair.mp4"></video>
 <p class="note">酒瓶入柜，布局 28。左侧不介入，右侧在视觉检测到分离后回退并重规划。两侧在告警前的动作与末端轨迹一致。</p>
