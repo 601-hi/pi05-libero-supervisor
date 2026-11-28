@@ -31,6 +31,13 @@
 <p>主对照涵盖 72 个回合，另有 12 个交接种子复核回合。两个种子下救回的是同一个瓶架布局，松手后酒瓶分别下落 3.67 cm 和 2.81 cm。历史回退在另一个训练侧布局通过复核。</p>
 <div class="links"><a href="https://github.com/601-hi/pi05-libero-supervisor/tree/main/docs/2026-11-20">实验协议与复现记录 ↗</a><a href="https://github.com/601-hi/pi05-libero-supervisor/releases/tag/v0.1.0">抽屉自然失败案例 ↗</a></div>
 </section>
+<section id="multi-fault"><h2>从酒瓶上架到五项任务：160 个回合的配对实验</h2>
+<div class="findings"><div><h3>LIBERO 任务成功率</h3><p><b>82.5% → 85.0%</b> 不介入完成 66/80 组，开启监督完成 68/80 组。</p></div><div><h3>逐组对照</h3><p><b>2 组救回，0 组损失</b> 原本失败的 14 组中救回 2 组，原本成功的 66 组全部保住。</p></div></div>
+<p>八种工况中，两次挽救分别发生在竖直运动受阻后的酒瓶入柜，以及短时失摩擦后的酒瓶上架。两组都在历史回退后交回 π0.5 重规划。</p>
+<video controls playsinline preload="metadata" style="width:100%;height:auto" aria-label="酒瓶入柜同起点对照：左侧不介入，右侧视觉告警后回退并重规划" src="2026-11-28/cabinet-z-stall-pair.mp4"></video>
+<p class="note">酒瓶入柜，布局 28。左侧不介入，右侧在视觉检测到分离后回退并重规划。两侧在告警前的动作与末端轨迹一致。</p>
+<div class="links"><a href="https://github.com/601-hi/pi05-libero-supervisor/tree/main/docs/2026-11-28">测试方法与逐组结果 ↗</a><a href="2026-11-28/intervention-statistics-zh.xlsx" download>下载中文统计表 ↓</a></div>
+</section>
 </main><footer class="wrap">Wang Zihan · Harbin Institute of Technology</footer>
 <script>
 const video = document.querySelector('#clip');
