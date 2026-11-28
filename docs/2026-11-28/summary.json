@@ -1,0 +1,142 @@
+{
+  "trials": 160,
+  "overall": {
+    "n": 80,
+    "before": 66,
+    "after": 68,
+    "rescued": 2,
+    "harmed": 0,
+    "exact": 79,
+    "both_exposed": 70
+  },
+  "matched": {
+    "n": 79,
+    "before": 66,
+    "after": 68,
+    "rescued": 2,
+    "harmed": 0,
+    "exact": 79,
+    "both_exposed": 69
+  },
+  "conditions": {
+    "normal": {
+      "n": 10,
+      "before": 10,
+      "after": 10,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 10,
+      "both_exposed": 0
+    },
+    "slip20": {
+      "n": 10,
+      "before": 6,
+      "after": 7,
+      "rescued": 1,
+      "harmed": 0,
+      "exact": 10,
+      "both_exposed": 10
+    },
+    "sustained_sliding": {
+      "n": 10,
+      "before": 10,
+      "after": 10,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 10,
+      "both_exposed": 10
+    },
+    "z_stall": {
+      "n": 10,
+      "before": 7,
+      "after": 8,
+      "rescued": 1,
+      "harmed": 0,
+      "exact": 9,
+      "both_exposed": 10
+    },
+    "direction_error": {
+      "n": 10,
+      "before": 6,
+      "after": 6,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 10,
+      "both_exposed": 10
+    },
+    "delay": {
+      "n": 10,
+      "before": 9,
+      "after": 9,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 10,
+      "both_exposed": 10
+    },
+    "reduced_gain": {
+      "n": 10,
+      "before": 8,
+      "after": 8,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 10,
+      "both_exposed": 10
+    },
+    "rotation_stall": {
+      "n": 10,
+      "before": 10,
+      "after": 10,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 10,
+      "both_exposed": 10
+    }
+  },
+  "tasks": {
+    "libero_goal_2": {
+      "n": 16,
+      "before": 11,
+      "after": 12,
+      "rescued": 1,
+      "harmed": 0,
+      "exact": 16,
+      "both_exposed": 14
+    },
+    "libero_goal_9": {
+      "n": 16,
+      "before": 8,
+      "after": 9,
+      "rescued": 1,
+      "harmed": 0,
+      "exact": 15,
+      "both_exposed": 14
+    },
+    "libero_object_0": {
+      "n": 16,
+      "before": 16,
+      "after": 16,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 16,
+      "both_exposed": 14
+    },
+    "libero_object_1": {
+      "n": 16,
+      "before": 16,
+      "after": 16,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 16,
+      "both_exposed": 14
+    },
+    "libero_object_2": {
+      "n": 16,
+      "before": 15,
+      "after": 15,
+      "rescued": 0,
+      "harmed": 0,
+      "exact": 16,
+      "both_exposed": 14
+    }
+  }
+}
